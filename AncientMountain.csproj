@@ -1,0 +1,61 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.BlazorWebAssembly">
+
+	<PropertyGroup>
+		<TargetFramework>net8.0</TargetFramework>
+		<Nullable>warnings</Nullable>
+		<ImplicitUsings>enable</ImplicitUsings>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+		<DebugType>none</DebugType>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+		<DebugType>none</DebugType>
+	</PropertyGroup>
+
+	<ItemGroup>
+	  <Content Remove="Maps\Customs.json" />
+	  <Content Remove="Maps\default.json" />
+	  <Content Remove="Maps\Factory.json" />
+	  <Content Remove="Maps\GroundZero.json" />
+	  <Content Remove="Maps\Interchange.json" />
+	  <Content Remove="Maps\Labs.json" />
+	  <Content Remove="Maps\Lighthouse.json" />
+	  <Content Remove="Maps\Reserve.json" />
+	  <Content Remove="Maps\Shoreline.json" />
+	  <Content Remove="Maps\Streets.json" />
+	  <Content Remove="Maps\Woods.json" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<EmbeddedResource Include="Resources\Maps.bin" />
+		<EmbeddedResource Include="Resources\NeoSansStdBold.otf" />
+		<EmbeddedResource Include="Resources\NeoSansStdItalic.otf" />
+		<EmbeddedResource Include="Resources\NeoSansStdMedium.otf" />
+		<EmbeddedResource Include="Resources\NeoSansStdRegular.otf" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <None Include="Maps\Customs.json" />
+	  <None Include="Maps\default.json" />
+	  <None Include="Maps\Factory.json" />
+	  <None Include="Maps\GroundZero.json" />
+	  <None Include="Maps\Interchange.json" />
+	  <None Include="Maps\Labs.json" />
+	  <None Include="Maps\Lighthouse.json" />
+	  <None Include="Maps\Reserve.json" />
+	  <None Include="Maps\Shoreline.json" />
+	  <None Include="Maps\Streets.json" />
+	  <None Include="Maps\Woods.json" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="8.0.11" />
+		<PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="8.0.11" PrivateAssets="all" />
+		<PackageReference Include="Microsoft.AspNetCore.SignalR.Client" Version="8.0.11" />
+		<PackageReference Include="Microsoft.AspNetCore.SignalR.Protocols.MessagePack" Version="9.0.0" />
+		<PackageReference Include="SkiaSharp.Views.Blazor" Version="2.88.9" />
+	</ItemGroup>
+
+</Project>

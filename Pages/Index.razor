@@ -1,0 +1,126 @@
+﻿@page "/"
+@using SkiaSharp
+@using SkiaSharp.Views.Blazor
+@using AncientMountain.Managed
+@using AncientMountain.Managed.Services
+@using System.Globalization
+@inject SignalRService SignalRService
+@inject RadarService RadarService
+@inject NavigationManager Navigation
+
+<PageTitle>@windowTitle</PageTitle>
+@if (showAlert)
+{
+    <div class="alert">
+        <span class="alert-closebtn" @onclick="CloseAlert">&times;</span>
+        @alertMessage
+    </div>
+}
+<div class="canvas-container">
+    <div class="connection-controls">
+        <label title="IP Address/Hostname of Web Radar Server (WAN IP).">Server IP/Host: </label>
+        <input type="text" @bind="host" class="host-input" maxlength="128" spellcheck="false" />
+        <label title="Port to connect to on the Web Radar Server.">Port: </label>
+        <input type="text" @bind="port" class="port-input" maxlength="5" spellcheck="false" />
+        <label title="Password to authenticate with the Web Radar Server.">Password: </label>
+        <input type="text" @bind="password" class="password-input" maxlength="12" spellcheck="false" />
+        <button title="Connect to the remote Web Radar Server." class="rounded-button" @onclick="Connect" disabled="@isConnecting">Connect</button>
+        <label title="Your in-game name. This will make the radar focus on you.">Your Name: </label>
+        <input type="text" @bind="name" class="name-input" maxlength="25" spellcheck="false" />
+        <label title="Scale Factor to make elements smaller/larger on the Radar Map.">Scale: </label>
+        <input type="range" step="0.01" min="0.50" max="2.00" @bind="RadarService.Scale" @bind:culture="CultureInfo.InvariantCulture" />
+        <label title="Zoom Factor to zoom in/out on the Radar Map.">Zoom: </label>
+        <input type="range" step="0.01" min="0.01" max="2.00" @bind="RadarService.Zoom" @bind:culture="CultureInfo.InvariantCulture" />
+    </div>
+    <div class="canvas-wrapper">
+        <SkiaSharp.Views.Blazor.SKCanvasView OnPaintSurface="OnPaintSurface" class="skia-canvas" EnableRenderLoop="true" />
+    </div>
+</div>
+
+
+@code {
+    private const string HTTPS_ERROR = "HTTPS is not supported! Change to http:// in the address bar.";
+    private string windowTitle = Utils.GetRandomTitle();
+    private string host = "localhost";
+    private string port = "5000";
+    private string password = "password";
+    private string name = "localPlayer";
+    private bool isHttps = false;
+    private bool isConnecting = false;
+    private bool showAlert = false;
+    private string alertMessage = null;
+
+
+    protected override void OnInitialized()
+    {
+        var uri = Navigation.ToAbsoluteUri(Navigation.Uri);
+        isHttps = uri.Scheme.Equals("https", StringComparison.OrdinalIgnoreCase);
+        if (isHttps)
+            ShowAlert(HTTPS_ERROR);
+
+        var query = System.Web.HttpUtility.ParseQueryString(uri.Query);
+
+        if (query["host"] != null)
+        {
+            host = query["host"];
+        }
+
+        if (query["port"] != null)
+        {
+            port = query["port"];
+        }
+
+        if (query["password"] != null)
+        {
+            password = query["password"];
+        }
+    }
+
+    private async Task Connect()
+    {
+        isConnecting = true;
+        StateHasChanged();
+        try
+        {
+            if (isHttps)
+                throw new Exception(HTTPS_ERROR);
+            await SignalRService.StartConnectionAsync(host, port, password);
+            CloseAlert();
+        }
+        catch (Exception ex)
+        {
+            ShowAlert($"Unhandled Error: {ex.Message}");
+        }
+        finally
+        {
+            isConnecting = false;
+            StateHasChanged();
+        }
+    }
+
+    private void ShowAlert(string message)
+    {
+        alertMessage = message;
+        showAlert = true;
+        StateHasChanged();
+    }
+
+    private void CloseAlert()
+    {
+        showAlert = false;
+        alertMessage = null;
+        StateHasChanged();
+    }
+
+    private void OnPaintSurface(SKPaintSurfaceEventArgs args) =>
+        RadarService.Render(args, name);
+
+    public async ValueTask DisposeAsync()
+    {
+        try
+        {
+            await SignalRService.StopConnectionAsync();
+        }
+        catch { }
+    }
+}
