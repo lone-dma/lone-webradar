@@ -29,6 +29,7 @@
 	  <Content Remove="Maps\Woods.json" />
 	</ItemGroup>
 
+
 	<ItemGroup>
 		<EmbeddedResource Include="Resources\Maps.bin" />
 		<EmbeddedResource Include="Resources\NeoSansStdBold.otf" />
@@ -37,26 +38,85 @@
 		<EmbeddedResource Include="Resources\NeoSansStdRegular.otf" />
 	</ItemGroup>
 
-	<ItemGroup>
-	  <None Include="Maps\Customs.json" />
-	  <None Include="Maps\default.json" />
-	  <None Include="Maps\Factory.json" />
-	  <None Include="Maps\GroundZero.json" />
-	  <None Include="Maps\Interchange.json" />
-	  <None Include="Maps\Labs.json" />
-	  <None Include="Maps\Lighthouse.json" />
-	  <None Include="Maps\Reserve.json" />
-	  <None Include="Maps\Shoreline.json" />
-	  <None Include="Maps\Streets.json" />
-	  <None Include="Maps\Woods.json" />
-	</ItemGroup>
 
+	<ItemGroup>
+	  <None Include="Maps\Customs.json">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </None>
+	  <None Include="Maps\default.json">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </None>
+	  <None Include="Maps\Factory.json">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </None>
+	  <None Include="Maps\GroundZero.json">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </None>
+	  <None Include="Maps\Interchange.json">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </None>
+	  <None Include="Maps\Labs.json">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </None>
+	  <None Include="Maps\Lighthouse.json">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </None>
+	  <None Include="Maps\Reserve.json">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </None>
+	  <None Include="Maps\Shoreline.json">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </None>
+	  <None Include="Maps\Streets.json">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </None>
+	  <None Include="Maps\Woods.json">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </None>
+	</ItemGroup>
+	
 	<ItemGroup>
 		<PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="8.0.11" />
 		<PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="8.0.11" PrivateAssets="all" />
 		<PackageReference Include="Microsoft.AspNetCore.SignalR.Client" Version="8.0.11" />
 		<PackageReference Include="Microsoft.AspNetCore.SignalR.Protocols.MessagePack" Version="9.0.0" />
 		<PackageReference Include="SkiaSharp.Views.Blazor" Version="2.88.9" />
+	</ItemGroup>
+	
+	<ItemGroup>
+	  <None Update="Maps\Customs.jpg">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </None>
+	  <None Update="Maps\default.jpg">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </None>
+	  <None Update="Maps\Factory.jpg">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </None>
+	  <None Update="Maps\GroundZero.jpg">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </None>
+	  <None Update="Maps\Interchange.jpg">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </None>
+	  <None Update="Maps\Labs.jpg">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </None>
+	  <None Update="Maps\Lighthouse.jpg">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </None>
+	  <None Update="Maps\Reserve.jpg">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </None>
+	  <None Update="Maps\Shoreline.jpg">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </None>
+	  <None Update="Maps\Streets.jpg">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </None>
+	  <None Update="Maps\Woods.jpg">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </None>
 	</ItemGroup>
 
 </Project>
