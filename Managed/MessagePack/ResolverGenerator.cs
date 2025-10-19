@@ -2,7 +2,7 @@
 using MessagePack;
 using MessagePack.Resolvers;
 
-namespace AncientMountain.Managed.MessagePack
+namespace LoneWebRadar.Managed.MessagePack
 {
     internal static class ResolverGenerator
     {

@@ -1,8 +1,8 @@
-using AncientMountain.Managed.Services;
+using LoneWebRadar.Managed.Services;
 using Microsoft.AspNetCore.Components.Web;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 
-namespace AncientMountain
+namespace LoneWebRadar
 {
     public class Program
     {

@@ -1,4 +1,4 @@
-﻿namespace AncientMountain.Managed.Data
+﻿namespace LoneWebRadar.Managed.Data
 {
     /// <summary>
     /// Defines Player Unit Type (Player,PMC,Scav,etc.)

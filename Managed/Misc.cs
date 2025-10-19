@@ -1,9 +1,9 @@
-﻿using AncientMountain.Managed.Services;
+﻿using LoneWebRadar.Managed.Services;
 using SkiaSharp;
 using System.Net;
 using System.Numerics;
 
-namespace AncientMountain.Managed
+namespace LoneWebRadar.Managed
 {
     public static class UnicodeSubstitutions
     {

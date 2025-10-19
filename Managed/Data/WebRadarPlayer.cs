@@ -1,10 +1,10 @@
-﻿using AncientMountain.Managed.Services;
-using AncientMountain.Managed.Skia;
+﻿using LoneWebRadar.Managed.Services;
+using LoneWebRadar.Managed.Skia;
 using MessagePack;
 using SkiaSharp;
 using System.Numerics;
 
-namespace AncientMountain.Managed.Data
+namespace LoneWebRadar.Managed.Data
 {
     [MessagePackObject]
     public sealed class WebRadarPlayer

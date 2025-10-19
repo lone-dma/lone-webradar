@@ -4,6 +4,7 @@
 		<TargetFramework>net8.0</TargetFramework>
 		<Nullable>warnings</Nullable>
 		<ImplicitUsings>enable</ImplicitUsings>
+		<RootNamespace>LoneWebRadar</RootNamespace>
 	</PropertyGroup>
 
 	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">

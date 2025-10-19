@@ -1,6 +1,6 @@
 ﻿using MessagePack;
 
-namespace AncientMountain.Managed.Data
+namespace LoneWebRadar.Managed.Data
 {
     [MessagePackObject]
     public sealed class WebRadarUpdate

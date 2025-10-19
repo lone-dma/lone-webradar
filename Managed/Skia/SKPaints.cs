@@ -1,6 +1,6 @@
 ﻿using SkiaSharp;
 
-namespace AncientMountain.Managed.Skia
+namespace LoneWebRadar.Managed.Skia
 {
     internal static class SKPaints
     {

@@ -1,7 +1,7 @@
 ﻿using MessagePack;
 using MessagePack.Formatters;
 
-namespace AncientMountain.Managed.MessagePack
+namespace LoneWebRadar.Managed.MessagePack
 {
     public class Vector3Formatter : IMessagePackFormatter<System.Numerics.Vector3>
     {

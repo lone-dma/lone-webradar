@@ -1,7 +1,7 @@
 ﻿using SkiaSharp;
 using System.Reflection;
 
-namespace AncientMountain.Managed.Skia
+namespace LoneWebRadar.Managed.Skia
 {
     internal static class CustomFonts
     {
@@ -27,22 +27,22 @@ namespace AncientMountain.Managed.Skia
             try
             {
                 byte[] fontFamilyRegular, fontFamilyBold, fontFamilyItalic, fontFamilyMedium;
-                using (var stream = Assembly.GetExecutingAssembly().GetManifestResourceStream("AncientMountain.Resources.NeoSansStdRegular.otf"))
+                using (var stream = Assembly.GetExecutingAssembly().GetManifestResourceStream("LoneWebRadar.Resources.NeoSansStdRegular.otf"))
                 {
                     fontFamilyRegular = new byte[stream.Length];
                     stream.Read(fontFamilyRegular);
                 }
-                using (var stream = Assembly.GetExecutingAssembly().GetManifestResourceStream("AncientMountain.Resources.NeoSansStdBold.otf"))
+                using (var stream = Assembly.GetExecutingAssembly().GetManifestResourceStream("LoneWebRadar.Resources.NeoSansStdBold.otf"))
                 {
                     fontFamilyBold = new byte[stream.Length];
                     stream.Read(fontFamilyBold);
                 }
-                using (var stream = Assembly.GetExecutingAssembly().GetManifestResourceStream("AncientMountain.Resources.NeoSansStdItalic.otf"))
+                using (var stream = Assembly.GetExecutingAssembly().GetManifestResourceStream("LoneWebRadar.Resources.NeoSansStdItalic.otf"))
                 {
                     fontFamilyItalic = new byte[stream.Length];
                     stream.Read(fontFamilyItalic);
                 }
-                using (var stream = Assembly.GetExecutingAssembly().GetManifestResourceStream("AncientMountain.Resources.NeoSansStdMedium.otf"))
+                using (var stream = Assembly.GetExecutingAssembly().GetManifestResourceStream("LoneWebRadar.Resources.NeoSansStdMedium.otf"))
                 {
                     fontFamilyMedium = new byte[stream.Length];
                     stream.Read(fontFamilyMedium);

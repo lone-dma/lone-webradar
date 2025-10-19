@@ -1,4 +1,4 @@
-﻿using AncientMountain.Managed.Skia;
+﻿using LoneWebRadar.Managed.Skia;
 using SkiaSharp;
 using SkiaSharp.Views.Blazor;
 using System.Collections.Frozen;
@@ -9,7 +9,7 @@ using System.Reflection;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 
-namespace AncientMountain.Managed.Services
+namespace LoneWebRadar.Managed.Services
 {
     public sealed class RadarService
     {
@@ -249,7 +249,7 @@ namespace AncientMountain.Managed.Services
         private static void LoadMaps(ref FrozenDictionary<string, Map> maps)
         {
             var mapsBuilder = new Dictionary<string, Map>(StringComparer.OrdinalIgnoreCase);
-            using var resourceStream = Assembly.GetExecutingAssembly().GetManifestResourceStream("AncientMountain.Resources.Maps.bin");
+            using var resourceStream = Assembly.GetExecutingAssembly().GetManifestResourceStream("LoneWebRadar.Resources.Maps.bin");
             var resourceBytes = new byte[resourceStream!.Length];
             resourceStream.Read(resourceBytes);
             using var ms = new MemoryStream(resourceBytes, false);

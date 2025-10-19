@@ -1,9 +1,9 @@
-﻿using AncientMountain.Managed.Data;
-using AncientMountain.Managed.MessagePack;
+﻿using LoneWebRadar.Managed.Data;
+using LoneWebRadar.Managed.MessagePack;
 using MessagePack;
 using Microsoft.AspNetCore.SignalR.Client;
 
-namespace AncientMountain.Managed.Services
+namespace LoneWebRadar.Managed.Services
 {
     public sealed class SignalRService
     {
